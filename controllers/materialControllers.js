@@ -5,4 +5,25 @@ const defaultController = async (req, res, next) => {
   res.json(data);
 };
 
-export { defaultController };
+const getMaterials = async (req, res, next) => {
+  res.send("getMaterials");
+};
+const addMaterial = async (req, res, next) => {
+  res.send("addMaterial");
+};
+
+const deleteMaterial = async (req, res, next) => {
+  res.send("deleteMaterial");
+};
+
+const updateMaterial = async (req, res, next) => {
+  res.send("updateMaterial");
+};
+
+export {
+  defaultController,
+  getMaterials,
+  addMaterial,
+  deleteMaterial,
+  updateMaterial,
+};

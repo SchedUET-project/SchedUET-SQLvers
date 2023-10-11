@@ -7,7 +7,6 @@ import accountRouter from "../routes/api/accountRoutes.js";
 import materialRouter from "../routes/api/materialRoutes.js";
 import scheduleRouter from "../routes/api/scheduleRoutes.js";
 import sectionRouter from "../routes/api/sectionRoutes.js";
-import studentRouter from "../routes/api/studentRoutes.js";
 import registerRouter from "../routes/api/registerRoutes.js";
 
 dotenv.config();
@@ -25,7 +24,6 @@ app.use("/schedules", scheduleRouter);
 app.use("/accounts", accountRouter);
 app.use("/materials", materialRouter);
 app.use("/sections", sectionRouter);
-app.use("/students", studentRouter);
 app.use("/register", registerRouter);
 
 //Global Error Handler. IMPORTANT function params MUST start with err

@@ -1,3 +1,5 @@
+//this file is the for test only
+
 import db from "../config/db.js";
 
 class Post {
