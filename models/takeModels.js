@@ -1,5 +1,5 @@
 import db from "../config/db.js";
-import * as q from "./queries/takesQueries.js"
+import * as q from "./queries/registerQueries.js"
 
 class takeMod {
   static defaultQuery() {

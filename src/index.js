@@ -8,7 +8,7 @@ import materialRouter from "../routes/api/materialRoutes.js";
 import scheduleRouter from "../routes/api/scheduleRoutes.js";
 import sectionRouter from "../routes/api/sectionRoutes.js";
 import studentRouter from "../routes/api/studentRoutes.js";
-import takesRouter from "../routes/api/takesRoutes.js";
+import registerRouter from "../routes/api/registerRoutes.js";
 
 dotenv.config();
 
@@ -20,13 +20,13 @@ app.use(express.json());
 app.use("/public", express.static("./public"));
 
 //use routers
-app.use("/posts", router);
+app.use("/posts", router);   //localhost:8000/posts
 app.use("/schedules", scheduleRouter);
 app.use("/accounts", accountRouter);
 app.use("/materials", materialRouter);
 app.use("/sections", sectionRouter);
 app.use("/students", studentRouter);
-app.use("/takes", takesRouter);
+app.use("/register", registerRouter);
 
 //Global Error Handler. IMPORTANT function params MUST start with err
 app.use((err, req, res, next) => {
@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/test", (req, res) => {
-  console.log(req);
+  console.log(req.body);
   res.send(req.json);
 });
 

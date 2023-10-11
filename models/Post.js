@@ -2,7 +2,7 @@ import db from "../config/db.js";
 
 class Post {
   static findAll() {
-    let q = "select * from customers;";
+    let q = "show databases;";
     return db.query(q);
   }
 
