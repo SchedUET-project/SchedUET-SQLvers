@@ -1,3 +1,11 @@
-const defaultQuery = "show databases;"
+const defaultQuery = "show databases;";
 
-export { defaultQuery };
+const addAccount = "";
+
+const getAllAccounts = "";
+
+const updateAccount = "";
+
+const deleteAccount = "";
+
+export { defaultQuery, addAccount, getAllAccounts, updateAccount, deleteAccount };

@@ -5,6 +5,11 @@ class accMod {
   static defaultQuery() {
     return db.query(q.defaultQuery);
   }
+
+  static addAccount() {}
+  static getAllAccounts() {}
+  static updateAccount() {}
+  static deleteAccount() {}
 }
 
 export default accMod;

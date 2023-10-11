@@ -1,3 +1,20 @@
 const defaultQuery = "show databases;";
 
-export { defaultQuery };
+const addSection = "";
+
+const getAllSections = "";
+
+const getSectionById = "";
+
+const updateSection = "";
+
+const deleteSection = "";
+
+export {
+  defaultQuery,
+  addSection,
+  getAllSections,
+  getSectionById,
+  updateSection,
+  deleteSection,
+};

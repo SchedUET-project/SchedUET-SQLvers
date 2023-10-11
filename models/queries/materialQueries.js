@@ -1,3 +1,17 @@
 const defaultQuery = "show databases;";
 
-export { defaultQuery };
+const getMaterial = "";
+
+const updateMaterial = "";
+
+const addMaterial = "";
+
+const deleteMaterial = "";
+
+export {
+  defaultQuery,
+  getMaterial,
+  updateMaterial,
+  addMaterial,
+  deleteMaterial,
+};

@@ -1,13 +1,9 @@
 const defaultQuery = "show databases;";
 
-const showSchedule = "";
+const getScheduleById = "";
 
-const makeScheduleFromTakes = "";
+const addSchedule = "";
 
-const addToSchedule = "";
+const deleteSchedule = "";
 
-const deleteFromSchedule = "";
-
-const showSection = "";
-
-export { defaultQuery };
+export { defaultQuery, getScheduleById, addSchedule, deleteSchedule };
