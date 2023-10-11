@@ -6,7 +6,7 @@ const defaultController = async (req, res, next) => {
   let [data, _] = await takeMod.defaultQuery();
   res.json(data);
 };
-const getAllSection = async (req, res, next) => {
+const getAllSections = async (req, res, next) => {
   res.send("getAllSection");
 };
 
@@ -24,7 +24,7 @@ const addTake = async (req, res, next) => {
 
 export {
   defaultController,
-  getAllSection,
+  getAllSections,
   getRegisteredSections,
   deleteTake,
   addTake,

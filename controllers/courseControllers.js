@@ -1,5 +1,7 @@
 import courseMod from "../models/courseModels";
 
+
+
 const getAllCourses = async (req, res, next) => {
   res.send("getAllCourses");
 };

@@ -3,11 +3,11 @@ import dotenv from "dotenv";
 
 //import routers
 import router from "../routes/api/postRoutes.js";
-import accountRouter from "../routes/api/accountRoutes.js";
-import materialRouter from "../routes/api/materialRoutes.js";
-import scheduleRouter from "../routes/api/scheduleRoutes.js";
-import sectionRouter from "../routes/api/sectionRoutes.js";
-import registerRouter from "../routes/api/registerRoutes.js";
+import accountRouter from "../routes/api/accountsRoutes.js";
+import materialRouter from "../routes/api/materialsRoutes.js";
+import scheduleRouter from "../routes/api/schedulesRoutes.js";
+import sectionRouter from "../routes/api/sectionsRoutes.js";
+import registerRouter from "../routes/api/registrationsRoutes.js";
 
 dotenv.config();
 
