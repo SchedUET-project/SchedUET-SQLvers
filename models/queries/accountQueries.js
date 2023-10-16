@@ -8,4 +8,10 @@ const updateAccount = "";
 
 const deleteAccount = "";
 
-export { defaultQuery, addAccount, getAllAccounts, updateAccount, deleteAccount };
+export {
+  defaultQuery,
+  addAccount,
+  getAllAccounts,
+  updateAccount,
+  deleteAccount,
+};

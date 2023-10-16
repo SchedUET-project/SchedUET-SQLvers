@@ -8,7 +8,10 @@ const defaultController = async (req, res, next) => {
 };
 
 const getSchedulesById = async (req, res, next) => {
-  res.send("getSchedulesById");
+  let id = req.params.id;
+  let [data, _] = await schMod.getScheduleById(id);
+
+  res.send(data);
 };
 
 const getSchedulesByTakes = async (req, res, next) => {

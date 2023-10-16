@@ -1,7 +1,7 @@
 import accMod from "../models/accountModels.js";
 
 const defaultController = async (req, res, next) => {
-  let [data, _] = await accMod.defaultQuery();
+  let [data, _] = await accMod.defaultQuery(a);
   res.json(data);
 };
 
@@ -20,6 +20,7 @@ const deleteAccount = async (req, res, next) => {
 const updateAccount = async (req, res, next) => {
   res.send("updateAccount");
 };
+
 export {
   defaultController,
   getAllAccounts,

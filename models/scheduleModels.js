@@ -5,7 +5,9 @@ class schMod {
   static defaultQuery() {
     return db.query(q.defaultQuery);
   }
-  static getScheduleById() {}
+  static getScheduleById(id) {
+    return db.execute(q.getScheduleById, [id])
+  }
 
   static addSchedule() {}
 

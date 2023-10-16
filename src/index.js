@@ -1,13 +1,18 @@
 import express from "express";
 import dotenv from "dotenv";
 
+//import middlewares
+import errHandler from "../middleware/error-handler.js";
+
 //import routers
 import router from "../routes/api/postRoutes.js";
 import accountRouter from "../routes/api/accountsRoutes.js";
+import courseRouter from "../routes/api/coursesRoutes.js";
 import materialRouter from "../routes/api/materialsRoutes.js";
+import registerRouter from "../routes/api/registrationsRoutes.js";
 import scheduleRouter from "../routes/api/schedulesRoutes.js";
 import sectionRouter from "../routes/api/sectionsRoutes.js";
-import registerRouter from "../routes/api/registrationsRoutes.js";
+import teacherRouter from "../routes/api/teachersRoutes.js";
 
 dotenv.config();
 
@@ -19,32 +24,21 @@ app.use(express.json());
 app.use("/public", express.static("./public"));
 
 //use routers
-app.use("/posts", router);   //localhost:8000/posts
-app.use("/schedules", scheduleRouter);
+app.use("/posts", router); //localhost:8000/posts
 app.use("/accounts", accountRouter);
+app.use("/courses", courseRouter);
 app.use("/materials", materialRouter);
-app.use("/sections", sectionRouter);
 app.use("/register", registerRouter);
+app.use("/schedules", scheduleRouter);
+app.use("/sections", sectionRouter);
+app.use("/teachers", teacherRouter);
 
-//Global Error Handler. IMPORTANT function params MUST start with err
-app.use((err, req, res, next) => {
-  console.log(err.stack);
-  console.log(err.name);
-  console.log(err.code);
+//Error Handler
+app.use(errHandler.globalErrorHandler);
 
-  res.status(500).json({
-    message: "Something went wrong",
-  });
-});
 
 app.get("/", (req, res) => {
-  // res.json("hello this is the backend ");
-  res.redirect("http://localhost:8000/public/main.html");
-});
-
-app.post("/test", (req, res) => {
-  console.log(req.body);
-  res.send(req.json);
+  res.send("trang chủ")
 });
 
 app.listen(PORT, () => {

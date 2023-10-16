@@ -6,8 +6,13 @@ class accMod {
     return db.query(q.defaultQuery);
   }
 
-  static addCourse() {}
-  static getAllCourses() {}
+  static getAllCourses() {
+    return db.query(q.getAllCourses);
+  }
+  static addCourse(data) {
+    let array = [data["courseID"], data["title"], data["credits"]];
+    return db.execute(q.addCourse, array);
+  }
   static getCourseById() {}
   static updateCourse() {}
   static deleteCourse() {}

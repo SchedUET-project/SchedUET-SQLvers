@@ -1,9 +1,18 @@
-const addCourse = ""
 
-const getAllCourses = ""
+const getAllCourses = `
+select * from courses;
+`
 
-const getCourseById = "" 
+const getCourseById = ``
 
+const addCourse = `
+    insert into courses
+    value (
+        ?,
+        ?,
+        ?
+    );
+`
 const updateCourse = ""
 
 const deleteCourse = ""
