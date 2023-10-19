@@ -1,5 +1,6 @@
 import e from "express";
 import courseMod from "../models/courseModels.js";
+import wrapper from "../middleware/wrapper.js"
 
 const getAllCourses = async (req, res, next) => {
   try {
@@ -21,7 +22,7 @@ const addCourse = async (req, res, next) => {
 };
 
 const deleteCourse = async (req, res, next) => {
-  res.send("deleteCourse");
+  
 };
 
 const updateCourse = async (req, res, next) => {

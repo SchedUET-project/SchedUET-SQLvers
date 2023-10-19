@@ -15,7 +15,9 @@ class accMod {
   }
   static getCourseById() {}
   static updateCourse() {}
-  static deleteCourse() {}
+  static deleteCourse(data) {
+    let array = 
+  }
 }
 
 export default accMod;
