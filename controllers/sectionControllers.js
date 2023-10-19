@@ -1,25 +1,26 @@
+import { wrapper } from "../middleware/wrapper.js";
 import secMod from "../models/sectionModels.js";
 
-const defaultController = async (req, res, next) => {
+const defaultController = wrapper(async (req, res, next) => {
   let [data, _] = await secMod.defaultQuery();
   res.json(data);
-};
+});
 
-const getAllSections = async (req, res, next) => {
+const getAllSections = wrapper(async (req, res, next) => {
   res.send("getAllSections");
-};
+});
 
-const addSection = async (req, res, next) => {
+const addSection = wrapper(async (req, res, next) => {
   res.send("addSection");
-};
+});
 
-const updateSection = async (req, res, next) => {
+const updateSection = wrapper(async (req, res, next) => {
   res.send("updateSection");
-};
+});
 
-const deleteSection = async (req, res, next) => {
+const deleteSection = wrapper(async (req, res, next) => {
   res.send("deleteSection");
-};
+});
 
 export {
   defaultController,

@@ -1,24 +1,25 @@
+import { wrapper } from "../middleware/wrapper.js";
 import mtrMod from "../models/materialModels.js";
 
-const defaultController = async (req, res, next) => {
+const defaultController = wrapper(async (req, res, next) => {
   let [data, _] = await mtrMod.defaultQuery();
   res.json(data);
-};
+});
 
-const getMaterials = async (req, res, next) => {
+const getMaterials = wrapper(async (req, res, next) => {
   res.send("getMaterials");
-};
-const addMaterial = async (req, res, next) => {
+});
+const addMaterial = wrapper(async (req, res, next) => {
   res.send("addMaterial");
-};
+});
 
-const deleteMaterial = async (req, res, next) => {
+const deleteMaterial = wrapper(async (req, res, next) => {
   res.send("deleteMaterial");
-};
+});
 
-const updateMaterial = async (req, res, next) => {
+const updateMaterial = wrapper(async (req, res, next) => {
   res.send("updateMaterial");
-};
+});
 
 export {
   defaultController,

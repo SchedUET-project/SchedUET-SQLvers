@@ -1,25 +1,26 @@
+import { wrapper } from "../middleware/wrapper.js";
 import accMod from "../models/accountModels.js";
 
-const defaultController = async (req, res, next) => {
+const defaultController = wrapper(async (req, res, next) => {
   let [data, _] = await accMod.defaultQuery(a);
   res.json(data);
-};
+});
 
-const getAllAccounts = async (req, res, next) => {
+const getAllAccounts = wrapper(async (req, res, next) => {
   res.send("getAllAccounts");
-};
+});
 
-const addAccount = async (req, res, next) => {
+const addAccount = wrapper(async (req, res, next) => {
   res.send("addAccount");
-};
+});
 
-const deleteAccount = async (req, res, next) => {
+const deleteAccount = wrapper(async (req, res, next) => {
   res.send("deleteAccount");
-};
+});
 
-const updateAccount = async (req, res, next) => {
+const updateAccount = wrapper(async (req, res, next) => {
   res.send("updateAccount");
-};
+});
 
 export {
   defaultController,
