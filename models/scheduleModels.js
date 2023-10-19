@@ -6,12 +6,19 @@ class schMod {
     return db.query(q.defaultQuery);
   }
   static getScheduleById(id) {
-    return db.execute(q.getScheduleById, [id])
+    return db.query(q.getScheduleById, [id])
   }
 
-  static addSchedule() {}
+  static addSchedule(data) {
+    console.log(data);
+    let array = [data["accountID"], data["courseID"], data["sectionID"]];
+    return db.execute(q.addSchedule, array);
+  }
 
-  static deleteSchedule() {}
+  static deleteSchedule(data) {
+    let array = [data["accountID"], data["courseID"], data["sectionID"]];
+    return db.execute(q.deleteSchedule, array);
+  }
 }
 
 export default schMod;

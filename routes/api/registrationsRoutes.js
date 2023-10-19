@@ -9,5 +9,5 @@ router
   .route("/:id")
   .post(takesController.addTake)
   .delete(takesController.deleteTake);
-  
+
 export default router;

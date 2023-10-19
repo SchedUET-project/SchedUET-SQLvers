@@ -7,15 +7,34 @@ const defaultController = async (req, res, next) => {
   res.json(data);
 };
 const getAllSections = async (req, res, next) => {
-  res.send("getAllSection");
+  try{
+    let id = req.params.id;
+    let [data, _] = await secMod.getAllSections(id);
+    res.send(data);
+  }catch(error){
+    next(error);
+  }
 };
 
 const getRegisteredSections = async (req, res, next) => {
-  res.send("getRegisteredSections");
+  try{
+    let id = req.params.id;
+    let [data, _] = await takeMod.getTakesByStudentId(id);
+    res.send(data);
+  }catch(error){
+    next(error);
+  }
 };
 
 const deleteTake = async (req, res, next) => {
-  res.send("deleteTake");
+  try {
+    let data = req.body;
+    data["accountID"] = req.params.id;
+    let [result, _] = await takeMod.deleteTake(data);
+    res.send(result);
+  } catch (error) {
+    next(error);
+  }
 };
 
 const addTake = async (req, res, next) => {

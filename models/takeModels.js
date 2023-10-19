@@ -6,11 +6,17 @@ class takeMod {
     return db.query(q.defaultQuery);
   }
 
-  static getTakesByStudentId() {}
+  static getTakesByStudentId(id) {
+    return db.query(q.getTakesByStudentId, [id]);
+  }
 
   static addTake() {}
 
-  static deleteTake() {}
+  static deleteTake(data) {
+    console.log(data);
+    let array = [data["accountID"], data["courseID"], data["sectionID"]];
+    return db.execute(q.deleteTake, array);
+  }
 }
 
 export default takeMod;
