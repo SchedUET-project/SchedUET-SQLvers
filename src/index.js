@@ -28,7 +28,7 @@ app.use("/posts", router); //localhost:8000/posts
 app.use("/accounts", accountRouter);
 app.use("/courses", courseRouter);
 app.use("/materials", materialRouter);
-app.use("/register", registerRouter);
+app.use("/registrations", registerRouter);
 app.use("/schedules", scheduleRouter);
 app.use("/sections", sectionRouter);
 app.use("/teachers", teacherRouter);

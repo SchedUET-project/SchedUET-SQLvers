@@ -5,8 +5,7 @@ class accMod {
   static defaultQuery() {
     return db.query(q.defaultQuery);
   }
-
-  static getTooksByStudent() {}
+  
   static addTook() {}
   static deleteTook() {}
 }

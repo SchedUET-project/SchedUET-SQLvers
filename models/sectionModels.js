@@ -7,7 +7,10 @@ class secMod {
   }
 
   static addSection() {}
-  static getAllSections() {}
+  // This query MUST avoid the section has been taken 
+  static getAllSections(id) {
+    return db.query(q.getAllSections, [id]);
+  }
   static getSectionById() {}
   static updateSection() {}
   static deleteSection() {}

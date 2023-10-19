@@ -2,7 +2,8 @@ const defaultQuery = "show databases;";
 
 const addSection = "";
 
-const getAllSections = "";
+// This query MUST avoid the section has been taken 
+const getAllSections = "SELECT * FROM sections WHERE courseID NOT IN (SELECT courseID FROM tooks WHERE studentID = ?)";
 
 const getSectionById = "";
 
