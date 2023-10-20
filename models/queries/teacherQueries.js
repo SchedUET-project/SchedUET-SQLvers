@@ -1,9 +1,16 @@
-const getAllTeachers = "";
+const getAllTeachers = `SELECT * FROM teachers;`;
 
-const updateTeacher = "";
+const updateTeacher = `UPDATE teachers
+                       SET name = ?,
+                           email = ?,
+                           faculty = ?,
+                           role = ?
+                       WHERE teacherId = ?;`;
 
-const addTeacher = "";
+const addTeacher = `INSERT INTO teachers
+                    VALUES(?, ?, ?, ?, ?);`;
 
-const deleteTeacher = "";
+const deleteTeacher = `DELETE FROM teachers 
+                       WHERE teacherID = ?;`;
 
 export { getAllTeachers, updateTeacher, addTeacher, deleteTeacher };
