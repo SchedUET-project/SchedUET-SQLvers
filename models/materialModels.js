@@ -20,7 +20,13 @@ class mtrMod {
     return db.execute(q.addMaterial, array);
   }
 
-  static getMaterials() {}
+  static getMaterials(data) {
+    let array = [];
+    for(let i = 0; i < data["mode"].length; i++){
+      array.push(data["q"] + "%");
+    }
+    return db.query(q.getMaterial(data["mode"]), array);
+  }
   static updateMaterial(id, data) {
     let array = [
       data["courseID"],

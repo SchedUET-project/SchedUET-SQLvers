@@ -27,7 +27,10 @@ const deleteTake = wrapper(async (req, res, next) => {
 });
 
 const addTake = wrapper(async (req, res, next) => {
-  res.send("addTake");
+  let data = req.body;
+  data["accountID"] = req.params.id;
+  let [result, _] = await takeMod.addTake(data);
+  res.send(result);
 });
 
 export {
