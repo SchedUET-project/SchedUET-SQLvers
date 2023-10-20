@@ -2,7 +2,8 @@ import { wrapper } from "../middleware/wrapper.js";
 import teachMod from "../models/teacherModels.js";
 
 const getAllTeachers = wrapper(async (req, res, next) => {
-  res.send("getAllTeachers");
+  let [result, _] = await teachMod.getAllTeachers();
+  res.send(result);
 });
 
 const addTeacher = wrapper(async (req, res, next) => {

@@ -6,9 +6,14 @@ class accMod {
     return db.query(q.defaultQuery);
   }
 
-  static getAllTeachers() {}
+  static getAllTeachers() {
+    return db.execute(q.getAllTeachers);
+  }
+  static addTeacher(data) {
+    let array = [data["teacherID"], data["name"], data["email"], data["faculty"], data["role"]];
+    return db.execute(q.addTeacher, array);
+  }
   static updateTeacher() {}
-  static addTeacher() {}
   static deleteTeacher() {}
 }
 
