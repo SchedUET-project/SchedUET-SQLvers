@@ -1,10 +1,26 @@
+import { query } from "express";
+
 const defaultQuery = "show databases;";
 
-const getMaterial = `
-select * from studyMaterials
-`
+const getType = {
+  0: "courseTitle",
+  1: "name",
+  2: "author"
+}
 
-;
+function getMaterial(type){
+  let query = "SELECT * FROM studyMaterials WHERE LOWER("
+  let isFirst = false;
+  type.forEach(val => {
+    if(isFirst == false){
+      isFirst = true
+      query += getType[val] + ") LIKE ?";
+    }else{
+      query += " OR LOWER(" + getType[val] + ") LIKE ?";
+    }
+  });
+  return query;
+}
 
 const updateMaterial = `
 UPDATE studyMaterials
