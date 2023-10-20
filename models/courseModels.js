@@ -9,15 +9,24 @@ class accMod {
   static getAllCourses() {
     return db.query(q.getAllCourses);
   }
+
   static addCourse(data) {
     let array = [data["courseID"], data["title"], data["credits"]];
     return db.execute(q.addCourse, array);
   }
-  static getCourseById() {}
-  static updateCourse() {}
+
   static deleteCourse(data) {
-    let array = 
+    let array = [data];
+    return db.execute(q.deleteCourse, array);
   }
+
+  static updateCourse(id, data) {
+    let array = [data["courseID"], data["title"], data["credits"], id];
+    console.log(array);
+    return db.execute(q.updateCourse, array);
+  }
+
+  static getCourseById() {}
 }
 
 export default accMod;

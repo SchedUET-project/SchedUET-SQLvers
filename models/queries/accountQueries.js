@@ -1,12 +1,27 @@
 const defaultQuery = "show databases;";
 
-const addAccount = "";
+const getAllAccounts = `
+select * from accounts; 
+`;
 
-const getAllAccounts = "";
+const addAccount = `
+insert into accounts
+values (?, ?, ?);
+`;
 
-const updateAccount = "";
+const updateAccount = `
+update accounts
+set
+userID = ?,
+password = ?,
+isAdmin = ?
+where userID = ?
+`;
 
-const deleteAccount = "";
+const deleteAccount = `
+DELETE FROM accounts
+WHERE userID = ?;
+`;
 
 export {
   defaultQuery,

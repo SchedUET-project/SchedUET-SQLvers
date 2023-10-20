@@ -1,9 +1,8 @@
-
 const getAllCourses = `
 select * from courses;
-`
+`;
 
-const getCourseById = ``
+const getCourseById = ``;
 
 const addCourse = `
     insert into courses
@@ -12,9 +11,16 @@ const addCourse = `
         ?,
         ?
     );
-`
-const updateCourse = ""
+`;
+const deleteCourse = `
+DELETE FROM courses
+WHERE courseID = ?;
+`;
 
-const deleteCourse = ""
+const updateCourse = `
+UPDATE courses
+SET courseID = ?, title = ?, credits = ?
+WHERE courseID = ?;
+`;
 
-export {addCourse, getAllCourses, getCourseById, updateCourse, deleteCourse}
+export { addCourse, getAllCourses, getCourseById, updateCourse, deleteCourse };

@@ -7,19 +7,27 @@ const defaultController = wrapper(async (req, res, next) => {
 });
 
 const getAllAccounts = wrapper(async (req, res, next) => {
-  res.send("getAllAccounts");
+  let [result, _] = await accMod.getAllAccounts();
+  res.send(result);
 });
 
 const addAccount = wrapper(async (req, res, next) => {
-  res.send("addAccount");
+  let data = req.body;
+  let [result, _] = await accMod.addAccount(data);
+  res.send(result);
 });
 
 const deleteAccount = wrapper(async (req, res, next) => {
-  res.send("deleteAccount");
+  let data = req.params.id;
+  let [result, _] = await accMod.deleteAccount(data);
+  res.send(result);
 });
 
 const updateAccount = wrapper(async (req, res, next) => {
-  res.send("updateAccount");
+  let id = req.params.id;
+  let data = req.body;
+  let [result, _] = await accMod.updateAccount(id, data);
+  res.send(result);
 });
 
 export {
