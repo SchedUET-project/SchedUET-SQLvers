@@ -7,7 +7,10 @@ const defaultController = wrapper(async (req, res, next) => {
 });
 
 const getMaterials = wrapper(async (req, res, next) => {
-  res.send("getMaterials");
+  let query = req.query;
+  query["mode"] = query["mode"].split(",");
+  let [data, _] = await mtrMod.getMaterials(query);
+  res.json(data);
 });
 const addMaterial = wrapper(async (req, res, next) => {
   let data = req.body;

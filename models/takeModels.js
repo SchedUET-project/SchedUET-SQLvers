@@ -10,10 +10,12 @@ class takeMod {
     return db.query(q.getTakesByStudentId, [id]);
   }
 
-  static addTake() {}
+  static addTake(data) {
+    let array = [data["accountID"], data["courseID"], data["sectionID"]];
+    return db.execute(q.addTake, array);
+  }
 
   static deleteTake(data) {
-    console.log(data);
     let array = [data["accountID"], data["courseID"], data["sectionID"]];
     return db.execute(q.deleteTake, array);
   }
