@@ -1,11 +1,14 @@
 const getAllTeachers = `SELECT * FROM teachers;`;
 
-const updateTeacher = `UPDATE teachers
-                       SET name = ?,
-                           email = ?,
-                           faculty = ?,
-                           role = ?
-                       WHERE teacherId = ?;`;
+const updateTeacher = 
+`UPDATE teachers
+SET
+teacherID = ?,
+name = ?,
+email = ?,
+faculty = ?,
+role = ?
+WHERE teacherID = ?;`;
 
 const addTeacher = `INSERT INTO teachers
                     VALUES(?, ?, ?, ?, ?);`;

@@ -10,11 +10,30 @@ class accMod {
     return db.execute(q.getAllTeachers);
   }
   static addTeacher(data) {
-    let array = [data["teacherID"], data["name"], data["email"], data["faculty"], data["role"]];
+    let array = [
+      data["teacherID"],
+      data["name"],
+      data["email"],
+      data["faculty"],
+      data["role"],
+    ];
     return db.execute(q.addTeacher, array);
   }
-  static updateTeacher() {}
-  static deleteTeacher() {}
+  static updateTeacher(id, data) {
+    let array = [
+      data["teacherID"],
+      data["name"],
+      data["email"],
+      data["faculty"],
+      data["role"],
+      id,
+    ];
+    return db.execute(q.updateTeacher, array);
+  }
+  static deleteTeacher(data) {
+    let array = [data];
+    return db.execute(q.deleteTeacher, array);
+  }
 }
 
 export default accMod;

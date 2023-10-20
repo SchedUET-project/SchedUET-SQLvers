@@ -7,15 +7,22 @@ const getAllTeachers = wrapper(async (req, res, next) => {
 });
 
 const addTeacher = wrapper(async (req, res, next) => {
-  res.send("addTeacher");
+  let data = req.body;
+  let [result, _] = await teachMod.addTeacher(data);
+  res.send(result);
 });
 
 const updateTeacher = wrapper(async (req, res, next) => {
-  res.send("updateTeacher");
+  let id = req.params.id;
+  let data = req.body;
+  let [result, _] = await teachMod.updateTeacher(id, data);
+  res.send(result);
 });
 
 const deleteTeacher = wrapper(async (req, res, next) => {
-  res.send("deleteTeacher");
+  let id = req.params.id;
+  let [result, _] = await teachMod.deleteTeacher(id);
+  res.send(result);
 });
 
 export { getAllTeachers, addTeacher, updateTeacher, deleteTeacher };
