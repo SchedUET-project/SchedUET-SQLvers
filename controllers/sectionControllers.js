@@ -7,11 +7,15 @@ const defaultController = wrapper(async (req, res, next) => {
 });
 
 const getAllSections = wrapper(async (req, res, next) => {
-  res.send("getAllSections");
+  let id = req.params.id;
+  let [result, _] = await secMod.getAllSections(id);
+  res.send(result);
 });
 
 const addSection = wrapper(async (req, res, next) => {
-  res.send("addSection");
+  let data = req.body;
+  let [result, _] = await secMod.addSection(data);
+  res.send(result);
 });
 
 const updateSection = wrapper(async (req, res, next) => {

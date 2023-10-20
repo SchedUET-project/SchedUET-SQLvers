@@ -6,8 +6,20 @@ class secMod {
     return db.query(q.defaultQuery);
   }
 
-  static addSection() {}
-  // This query MUST avoid the section has been taken 
+  static addSection(data) {
+    let array = [
+      data["courseID"],
+      data["sectionID"],
+      data["location"],
+      data["day"],
+      data["start"],
+      data["end"],
+      data["teacher"],
+      data["capacity"],
+    ];
+    return db.execute(q.addSection, array);
+  }
+  // This query MUST avoid the section has been taken
   static getAllSections(id) {
     return db.query(q.getAllSections, [id]);
   }
