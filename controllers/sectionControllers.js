@@ -19,11 +19,18 @@ const addSection = wrapper(async (req, res, next) => {
 });
 
 const updateSection = wrapper(async (req, res, next) => {
-  res.send("updateSection");
+  let courseID = req.params.courseid;
+  let sectionID = req.params.sectionid;
+  let data = req.body;
+  let [result, _] = await secMod.updateSection(courseID, sectionID, data);
+  res.send(result);
 });
 
 const deleteSection = wrapper(async (req, res, next) => {
-  res.send("deleteSection");
+  let courseID = req.params.courseid;
+  let sectionID = req.params.sectionid;
+  let [result, _] = await secMod.deleteSection(courseID, sectionID);
+  res.send(result);
 });
 
 export {

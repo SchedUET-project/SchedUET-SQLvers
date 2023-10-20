@@ -19,14 +19,16 @@ WHERE sectionID = ?;
 
 const updateSection = 
 `UPDATE sections
-SET sectionId = ?,
+SET
 courseID = ?,
+sectionID = ?,
 location = ?,
 day = ?,
 start = ?,
 end = ?,
-teacher = ?,
-capacity= ?;`;
+teacherID = ?,
+capacity = ?
+WHERE courseID = ? and sectionID = ?;`;
 
 const deleteSection = `
 DELETE FROM sections
