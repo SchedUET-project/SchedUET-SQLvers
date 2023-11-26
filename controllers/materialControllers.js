@@ -14,6 +14,7 @@ const getMaterials = wrapper(async (req, res, next) => {
 });
 const addMaterial = wrapper(async (req, res, next) => {
   let data = req.body;
+  console.log("this is befor the error");
   let [result, _] = await mtrMod.addMaterial(data);
   res.send(result);
 });

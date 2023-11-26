@@ -1,13 +1,14 @@
 import express from "express";
 import * as takesController from "../../controllers/registrationControllers.js";
+import thisUserOnlyMiddleware from "../../middleware/thisUserOnly.js";
+
 const router = express.Router();
 
-router.route("/").get(takesController.defaultController);
-router.route("/sections/:id").get(takesController.getAllSections);
-router.route("/takes/:id").get(takesController.getRegisteredSections);
+router.route("/sections/:id").get(thisUserOnlyMiddleware, takesController.getAllSections);
+router.route("/takes/:id").get(thisUserOnlyMiddleware, takesController.getRegisteredSections);
 router
   .route("/:id")
-  .post(takesController.addTake)
-  .delete(takesController.deleteTake);
+  .post(thisUserOnlyMiddleware, takesController.addTake)
+  .delete(thisUserOnlyMiddleware, takesController.deleteTake);
 
 export default router;

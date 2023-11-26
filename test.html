@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Error</title>
+</head>
+
+<body>
+	<pre>Error: Cannot delete or update a parent row: a foreign key constraint fails (`scheduet`.`studymaterials`, CONSTRAINT `courseID` FOREIGN KEY (`courseID`) REFERENCES `courses` (`courseID`))<br> &nbsp; &nbsp;at PromisePool.execute (/Users/thanhdaonguyen/repos/SchedUET-SQLvers/node_modules/mysql2/promise.js:374:22)<br> &nbsp; &nbsp;at accMod.deleteCourse (file:///Users/thanhdaonguyen/repos/SchedUET-SQLvers/models/courseModels.js:20:15)<br> &nbsp; &nbsp;at file:///Users/thanhdaonguyen/repos/SchedUET-SQLvers/controllers/courseControllers.js:18:37<br> &nbsp; &nbsp;at file:///Users/thanhdaonguyen/repos/SchedUET-SQLvers/middleware/wrapper.js:4:15<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/Users/thanhdaonguyen/repos/SchedUET-SQLvers/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at next (/Users/thanhdaonguyen/repos/SchedUET-SQLvers/node_modules/express/lib/router/route.js:144:13)<br> &nbsp; &nbsp;at Route.dispatch (/Users/thanhdaonguyen/repos/SchedUET-SQLvers/node_modules/express/lib/router/route.js:114:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/Users/thanhdaonguyen/repos/SchedUET-SQLvers/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at /Users/thanhdaonguyen/repos/SchedUET-SQLvers/node_modules/express/lib/router/index.js:284:15<br> &nbsp; &nbsp;at param (/Users/thanhdaonguyen/repos/SchedUET-SQLvers/node_modules/express/lib/router/index.js:365:14)</pre>
+</body>
+
+</html>

@@ -8,7 +8,8 @@ const defaultController = wrapper(async (req, res, next) => {
 
 const getAllAccounts = wrapper(async (req, res, next) => {
   let [result, _] = await accMod.getAllAccounts();
-  res.send(result);
+  req.data = result;
+  next();
 });
 
 const addAccount = wrapper(async (req, res, next) => {
