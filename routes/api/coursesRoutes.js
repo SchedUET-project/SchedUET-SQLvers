@@ -1,15 +1,18 @@
 import express from "express";
 import * as courseController from "../../controllers/courseControllers.js";
+import adminOnlyMiddleware from "../../middleware/adminOnly.js"
+
+
 const router = express.Router();
 
 router
   .route("/")
   .get(courseController.getAllCourses)
-  .post(courseController.addCourse);
+  .post(adminOnlyMiddleware, courseController.addCourse);
 
 router
   .route("/:id")
-  .delete(courseController.deleteCourse)
-  .put(courseController.updateCourse);
+  .delete(adminOnlyMiddleware, courseController.deleteCourse)
+  .put(adminOnlyMiddleware, courseController.updateCourse);
 
 export default router;

@@ -6,39 +6,45 @@ import { wrapper } from "../middleware/wrapper.js";
 
 const defaultController = wrapper(async (req, res, next) => {
   let [data, _] = await schMod.defaultQuery();
-  res.json(data);
+  req.data = data;
+  next();
 });
 
 const getSchedulesById = wrapper(async (req, res, next) => {
   let id = req.params.id;
   let [data, _] = await schMod.getScheduleById(id);
-  res.send(data);
+  req.data = data;
+  next();
 });
 
 const getSchedulesByTakes = wrapper(async (req, res, next) => {
   let id = req.params.id;
   let [data, _] = await takeMod.getTakesByStudentId(id);
-  res.send(data);
+  req.data = data;
+  next();
 });
 
 const addSchedule = wrapper(async (req, res, next) => {
-  let data = req.body;
-  data["accountID"] = req.params.id;
-  let [result, _] = await schMod.addSchedule(data);
-  res.send(result);
+  let queryData = req.body;
+  queryData["accountID"] = req.params.id;
+  let [data, _] = await schMod.addSchedule(queryData);
+  req.data = data;
+  next();
 });
 
 const deleteSchedule = wrapper(async (req, res, next) => {
-  let data = req.body;
-  data["accountID"] = req.params.id;
-  let [result, _] = await schMod.deleteSchedule(data);
-  res.send(result);
+  let queryData = req.body;
+  queryData["accountID"] = req.params.id;
+  let [data, _] = await schMod.deleteSchedule(queryData);
+  req.data = data;
+  next();
 });
 
 const getAllSections = wrapper(async (req, res, next) => {
   let id = req.params.id;
   let [data, _] = await secMod.getAllSections(id);
-  res.send(data);
+  req.data = data;
+  next();
 });
 
 export {

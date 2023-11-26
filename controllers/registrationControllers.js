@@ -1,36 +1,40 @@
 import takeMod from "../models/takeModels.js";
 import secMod from "../models/sectionModels.js";
-import tookMod from "../models/tookModels.js";
 import { wrapper } from "../middleware/wrapper.js";
 
 const defaultController = wrapper(async (req, res, next) => {
   let [data, _] = await takeMod.defaultQuery();
-  res.json(data);
+  req.data = data;
+  next();
 });
 const getAllSections = wrapper(async (req, res, next) => {
   let id = req.params.id;
   let [data, _] = await secMod.getAllSections(id);
-  res.send(data);
+  req.data = data;
+  next();
 });
 
 const getRegisteredSections = wrapper(async (req, res, next) => {
   let id = req.params.id;
   let [data, _] = await takeMod.getTakesByStudentId(id);
-  res.send(data);
+  req.data = data;
+  next();
 });
 
 const deleteTake = wrapper(async (req, res, next) => {
-  let data = req.body;
-  data["accountID"] = req.params.id;
-  let [result, _] = await takeMod.deleteTake(data);
-  res.send(result);
+  let queryData = req.body;
+  queryData["accountID"] = req.params.id;
+  let [data, _] = await takeMod.deleteTake(queryData);
+  req.data = data;
+  next();
 });
 
 const addTake = wrapper(async (req, res, next) => {
-  let data = req.body;
-  data["accountID"] = req.params.id;
-  let [result, _] = await takeMod.addTake(data);
-  res.send(result);
+  let queryData = req.body;
+  queryData["accountID"] = req.params.id;
+  let [data, _] = await takeMod.addTake(queryData);
+  req.data = data;
+  next();
 });
 
 export {

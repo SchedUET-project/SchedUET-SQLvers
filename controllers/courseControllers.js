@@ -3,27 +3,31 @@ import courseMod from "../models/courseModels.js";
 import { wrapper } from "../middleware/wrapper.js";
 
 const getAllCourses = wrapper(async (req, res, next) => {
-  let [result, _] = await courseMod.getAllCourses();
-  res.send(result);
+  let [data, _] = await courseMod.getAllCourses();
+  req.data = data;
+  next();
 });
 
 const addCourse = wrapper(async (req, res, next) => {
-  let data = req.body;
-  let [result, _] = await courseMod.addCourse(data);
-  res.send(result);
+  let queryData = req.body;
+  let [data, _] = await courseMod.addCourse(queryData);
+  req.data = data;
+  next();
 });
 
 const deleteCourse = wrapper(async (req, res, next) => {
-  let data = req.params.id;
-  let [result, _] = await courseMod.deleteCourse(data);
-  res.send(result);
+  let queryData = req.params.id;
+  let [data, _] = await courseMod.deleteCourse(queryData);
+  req.data = data;
+  next();
 });
 
 const updateCourse = wrapper(async (req, res, next) => {
   let id = req.params.id;
-  let data = req.body
-  let [result, _] = await courseMod.updateCourse(id, data)
-  res.send(result);
+  let queryData = req.body;
+  let [data, _] = await courseMod.updateCourse(id, queryData);
+  req.data = data;
+  next();
 });
 
 export { getAllCourses, addCourse, deleteCourse, updateCourse };

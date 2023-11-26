@@ -1,15 +1,17 @@
 import express from "express";
 import * as accountController from "../../controllers/accountControllers.js";
+import adminOnlyMiddleware from "../../middleware/adminOnly.js"
+
 const router = express.Router();
 
 router
   .route("/")
-  .get(accountController.getAllAccounts)
-  .post(accountController.addAccount);
+  .get(adminOnlyMiddleware ,accountController.getAllAccounts)
+  .post(adminOnlyMiddleware, accountController.addAccount);
 
 router
   .route("/:id")
-  .put(accountController.updateAccount)
-  .delete(accountController.deleteAccount);
+  .put(adminOnlyMiddleware, accountController.updateAccount)
+  .delete(adminOnlyMiddleware, accountController.deleteAccount);
 
 export default router;
