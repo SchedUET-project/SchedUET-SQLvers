@@ -7,7 +7,13 @@ const authenticateMiddleware = (req, res, next) => {
     next();
   } else {
     delete global.account;
-    return res.status(401).json({errMessage: "not logged in!"});
+    return res.status(401).json({
+      status: "error",
+      err: {
+        message: "you are not logged in",
+        errno: 401
+      }
+    });
   }
   
 };

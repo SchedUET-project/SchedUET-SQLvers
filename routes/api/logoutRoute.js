@@ -6,7 +6,7 @@ const router = express.Router();
 router.route("/").get((req, res, next) => {
   sessionStorage.removeItem('user');
   delete global.account;
-  res.redirect("/login");
+  res.send("Logged out successfully")
 });
 
 export default router;

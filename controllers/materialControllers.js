@@ -13,23 +13,25 @@ const getMaterials = wrapper(async (req, res, next) => {
   res.json(data);
 });
 const addMaterial = wrapper(async (req, res, next) => {
-  let data = req.body;
-  console.log("this is befor the error");
-  let [result, _] = await mtrMod.addMaterial(data);
-  res.send(result);
+  let queryData = req.body;
+  let [data, _] = await mtrMod.addMaterial(queryData);
+  req.data = data;
+  next();
 });
 
 const deleteMaterial = wrapper(async (req, res, next) => {
-  let data = req.params.id;
-  let [result, _] = await mtrMod.deleteMaterial(data);
-  res.send(result);
+  let queryData = req.params.id;
+  let [data, _] = await mtrMod.deleteMaterial(queryData);
+  req.data = data;
+  next();
 });
 
 const updateMaterial = wrapper(async (req, res, next) => {
   let id = req.params.id;
-  let data = req.body;
-  let [result, _] = await mtrMod.updateMaterial(id, data);
-  res.send(result);
+  let queryData = req.body;
+  let [data, _] = await mtrMod.updateMaterial(id, queryData);
+  req.data = data;
+  next();
 });
 
 export {

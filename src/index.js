@@ -8,7 +8,6 @@ import notFoundMiddleware from "../middleware/notfound.js";
 import requestSuccessMiddleware from "../middleware/requestSuccess.js";
 
 //import routers
-import router from "../routes/api/postRoutes.js";
 import accountRouter from "../routes/api/accountsRoutes.js";
 import courseRouter from "../routes/api/coursesRoutes.js";
 import materialRouter from "../routes/api/materialsRoutes.js";
@@ -32,21 +31,18 @@ app.use(express.urlencoded({ extended: true }));
 //use login route
 app.use("/login", loginRouter);
 
-//check auth
+//check auth (this is for client's usage)
 app.use("/checkAuth", checkAuthRouter);
 app.use(authenticateMiddleware);
 
 //use routers
-
-app.use("/posts", router); //localhost:8000/posts
-app.use("/accounts", accountRouter);
-app.use("/courses", courseRouter);
-app.use("/materials", materialRouter);
-app.use("/registrations", registerRouter);
-app.use("/schedules", scheduleRouter);
-app.use("/sections", sectionRouter);
-app.use("/teachers", teacherRouter);
-app.use(requestSuccessMiddleware);
+app.use("/accounts", accountRouter, requestSuccessMiddleware);
+app.use("/courses", courseRouter, requestSuccessMiddleware);
+app.use("/materials", materialRouter, requestSuccessMiddleware);
+app.use("/registrations", registerRouter, requestSuccessMiddleware);
+app.use("/schedules", scheduleRouter, requestSuccessMiddleware);
+app.use("/sections", sectionRouter, requestSuccessMiddleware);
+app.use("/teachers", teacherRouter, requestSuccessMiddleware);
 
 //Logout route
 app.use("/logout", logoutRouter);

@@ -5,7 +5,7 @@ const adminOnlyMiddleware = (req, res, next) => {
     else {
         return next({
             message: "You are not authorized to access this resource",
-            errno: 401
+            errno: 403
         });
     }
 }

@@ -3,32 +3,36 @@ import accMod from "../models/accountModels.js";
 
 const defaultController = wrapper(async (req, res, next) => {
   let [data, _] = await accMod.defaultQuery(a);
-  res.json(data);
+  req.data = data
+  next();
 });
 
 const getAllAccounts = wrapper(async (req, res, next) => {
-  let [result, _] = await accMod.getAllAccounts();
-  req.data = result;
+  let [data, _] = await accMod.getAllAccounts();
+  req.data = data;
   next();
 });
 
 const addAccount = wrapper(async (req, res, next) => {
-  let data = req.body;
-  let [result, _] = await accMod.addAccount(data);
-  res.send(result);
+  let queryData = req.body;
+  let [data, _] = await accMod.addAccount(queryData);
+  req.data = data;
+  next();
 });
 
 const deleteAccount = wrapper(async (req, res, next) => {
-  let data = req.params.id;
-  let [result, _] = await accMod.deleteAccount(data);
-  res.send(result);
+  let queryData = req.params.id;
+  let [data, _] = await accMod.deleteAccount(queryData);
+  req.data = data;
+  next();
 });
 
 const updateAccount = wrapper(async (req, res, next) => {
   let id = req.params.id;
-  let data = req.body;
-  let [result, _] = await accMod.updateAccount(id, data);
-  res.send(result);
+  let queryData = req.body;
+  let [data, _] = await accMod.updateAccount(id, queryData);
+  req.data = data;
+  next();
 });
 
 export {

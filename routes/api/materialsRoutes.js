@@ -7,7 +7,6 @@ const router = express.Router();
 
 router
   .route("/")
-  .get(materialController.defaultController)
   .post(adminOnlyMiddleware, materialController.addMaterial);
 
 router
