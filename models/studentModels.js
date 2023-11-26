@@ -6,7 +6,6 @@ class stuMod {
     return db.query(q.defaultQuery);
   }
 
-  
 }
 
 export default stuMod;
