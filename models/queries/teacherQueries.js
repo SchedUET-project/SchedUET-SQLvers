@@ -17,3 +17,5 @@ const deleteTeacher = `DELETE FROM teachers
                        WHERE teacherID = ?;`;
 
 export { getAllTeachers, updateTeacher, addTeacher, deleteTeacher };
+
+
