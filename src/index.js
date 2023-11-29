@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 //import middlewares
 import errHandler from "../middleware/error-handler.js";
@@ -22,9 +23,12 @@ import logoutRouter from "../routes/api/logoutRoute.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 8000;
 
 //parser middleware
+app.use(cors({
+  origin: 'http://localhost:8001'
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

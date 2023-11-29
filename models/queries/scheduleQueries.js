@@ -1,6 +1,10 @@
 const defaultQuery = "show databases;";
 
-const getScheduleById = "SELECT courseID, sectionID FROM schedule WHERE userID = ?";
+const getScheduleById = 
+`SELECT courses.title, courses.credits, sections.* 
+FROM schedule inner join sections on schedule.courseID = sections.courseID and schedule.sectionID = sections.sectionID 
+    inner join courses on courses.courseID = sections.courseID 
+WHERE userID = ?`;
 
 const addSchedule = "INSERT INTO schedule (userID, courseID, sectionID) VALUES (?, ?, ?)";
 
