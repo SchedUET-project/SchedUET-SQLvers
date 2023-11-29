@@ -12,6 +12,12 @@ WHERE sections.courseID
 NOT IN (SELECT courseID FROM tooks WHERE studentID = ?)
 `;
 
+const getAllSectionsFullInfo = `
+SELECT * FROM sections NATURAL JOIN courses
+WHERE courseID
+NOT IN (SELECT courseID FROM tooks WHERE studentID = ?)
+`;
+
 const getSectionById = `
 SELECT * FROM sections
 WHERE sectionID = ?;
@@ -43,4 +49,5 @@ export {
   getSectionById,
   updateSection,
   deleteSection,
+  getAllSectionsFullInfo
 };

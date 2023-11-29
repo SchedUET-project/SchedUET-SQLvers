@@ -20,6 +20,11 @@ class secMod {
   static getAllSections(id) {
     return db.query(q.getAllSections, [id]);
   }
+
+  static getAllSectionsFullInfo(id) {
+    return db.query(q.getAllSectionsFullInfo, [id]);
+  }
+
   static deleteSection(courseID, sectionID) {
     let array = [courseID, sectionID];
     return db.execute(q.deleteSection, array);

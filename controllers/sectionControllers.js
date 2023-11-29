@@ -1,6 +1,13 @@
 import { wrapper } from "../middleware/wrapper.js";
 import secMod from "../models/sectionModels.js";
 
+const getAllSectionsFullInfo = wrapper(async (req, res, next) => {
+  let id = req.params.id;
+  let [data, _] = await secMod.getAllSectionsFullInfo(id);
+  req.data = data;
+  next();
+});
+
 const getAllSections = wrapper(async (req, res, next) => {
   let id = req.params.id;
   let [data, _] = await secMod.getAllSections(id);
@@ -37,4 +44,5 @@ export {
   addSection,
   updateSection,
   deleteSection,
+  getAllSectionsFullInfo
 };
