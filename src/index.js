@@ -23,7 +23,7 @@ import logoutRouter from "../routes/api/logoutRoute.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 8000;
 
 //parser middleware
 app.use(cors({
