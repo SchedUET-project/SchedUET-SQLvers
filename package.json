@@ -20,11 +20,7 @@
   "homepage": "https://github.com/thanhdaonguyen/SchedUET-SQLvers#readme",
   "dependencies": {
     "@vitalets/google-translate-api": "^9.2.0",
-<<<<<<< HEAD
     "axios": "^1.6.2",
-=======
-    "axios": "^1.5.1",
->>>>>>> 3c7b3f5e64e4e78392e820c8dc7a36916ddcf987
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",

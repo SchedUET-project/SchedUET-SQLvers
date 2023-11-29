@@ -7,7 +7,9 @@ VALUEs(?, ?, ?, ?, ?, ?, ?, ?)
 
 // This query MUST avoid the section has been taken 
 const getAllSections = `
-SELECT courses.title, courses.credits, sections.* FROM sections inner join courses on sections.courseID = courses.courseID
+SELECT courses.title, courses.credits, teachers.name, sections.* 
+FROM sections inner join courses on sections.courseID = courses.courseID
+inner join teachers on sections.teacherID = teachers.teacherID
 WHERE sections.courseID
 NOT IN (SELECT courseID FROM tooks WHERE studentID = ?)
 `;
