@@ -12,4 +12,6 @@ router
   .put(adminOnlyMiddleware, sectionController.updateSection)
   .delete(adminOnlyMiddleware, sectionController.deleteSection);
 
+router.route('/fullinfo/:id').get(adminOnlyMiddleware, sectionController.getAllSectionsFullInfo)
+
 export default router;
