@@ -18,10 +18,11 @@ router
   //   res.send(form);
   // })
   .post(async (req, res) => {
+    console.log([req.body.userID, req.body.password]);
     let queryForIDAndPassWord =
       "SELECT userID, password, isAdmin FROM accounts WHERE userID = ? AND password = ?;";
     const [result, _] = await db.query(queryForIDAndPassWord, [req.body.userID, req.body.password]);
-
+    
     const hasData = result.length > 0;
     const userData = result[0];
 
@@ -34,7 +35,7 @@ router
       sessionStorage.setItem("user", accountJSON);
       global.account = JSON.parse(accountJSON);
       return res.status(200).json({ loggedIn: 1});
-    }
+    } 
   });
 
 export default router;

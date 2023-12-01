@@ -10,8 +10,10 @@ const getMaterials = wrapper(async (req, res, next) => {
   let query = req.query;
   query["mode"] = query["mode"].split(",");
   let [data, _] = await mtrMod.getMaterials(query);
-  res.json(data);
+  req.data = data;
+  next();
 });
+
 const addMaterial = wrapper(async (req, res, next) => {
   let queryData = req.body;
   let [data, _] = await mtrMod.addMaterial(queryData);
