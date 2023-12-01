@@ -3,9 +3,13 @@ import { query } from "express";
 const defaultQuery = "show databases;";
 
 const getType = {
-  0: "courseTitle",
-  1: "name",
-  2: "author"
+  0: "courseID",
+  1: "materialID",
+  2: "name",
+  3: "courseTitle",
+  4: "author",
+  5: "publisher",
+  6: "publishYear"
 }
 
 function getMaterial(type){

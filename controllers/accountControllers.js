@@ -1,11 +1,6 @@
 import { wrapper } from "../middleware/wrapper.js";
 import accMod from "../models/accountModels.js";
 
-const defaultController = wrapper(async (req, res, next) => {
-  let [data, _] = await accMod.defaultQuery(a);
-  req.data = data
-  next();
-});
 
 const getAllAccounts = wrapper(async (req, res, next) => {
   let [data, _] = await accMod.getAllAccounts();
@@ -36,7 +31,6 @@ const updateAccount = wrapper(async (req, res, next) => {
 });
 
 export {
-  defaultController,
   getAllAccounts,
   addAccount,
   deleteAccount,
