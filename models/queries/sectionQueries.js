@@ -40,8 +40,8 @@ WHERE courseID = ? and sectionID = ?;`;
 
 const deleteSection = `
 DELETE FROM sections
-WHERE sectionID = ? 
-AND courseID = ?;
+WHERE courseID = ? 
+AND sectionID = ?;
 `;
 
 export {
