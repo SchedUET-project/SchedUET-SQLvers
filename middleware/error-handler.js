@@ -3,7 +3,7 @@ class ErrorHandler {
     console.log(err);
     res.status(500).json({
       status: "error",
-      err: err
+      err: err  
     });
   };
 

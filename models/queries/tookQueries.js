@@ -2,4 +2,6 @@ const addTook = "";
 
 const deleteTook = "";
 
-export {addTook, deleteTook };
+const getTook = "select courseID from tooks where studentID = ?;";
+
+export {getTook, addTook, deleteTook };
